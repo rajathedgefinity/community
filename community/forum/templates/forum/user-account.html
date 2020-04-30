@@ -1,0 +1,356 @@
+{% extends "forum/base.html" %}
+{% block content %}
+<br><br><br>
+
+
+<!--Main Layout-->
+<main class="my-3">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+    <div class="col-md-4">
+
+       <!--Card-->
+    <div class="card card-cascade">
+
+      <!--Card image-->
+      <div class="view view-cascade">
+        <img src="https://mdbootstrap.com/img/Photos/Others/men.jpg" class="card-img-top" alt="">
+        <a>
+          <div class="mask rgba-white-slight">
+
+          </div>
+        </a>
+      </div>
+      <!--/.Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+        <!--Title-->
+        {% if user.is_authenticated %}
+        <h4 class="card-title"><strong>{{ user.first_name }} {{user.last_name }}</strong></h4>
+         <p class="font-weight-bold dark-grey-text">
+          <span>{{ user.email }}</span><br>
+          <span>{{ user.mobile }}</span></p>
+
+                <hr>
+          <!-- Social Icons -->
+                <ul class="list-inline list-unstyled">
+                  <li class="list-inline-item">
+                    <a class="p-2 fa-lg fb-ic">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="p-2 fa-lg pin-ic">
+                      <i class="fab fa-pinterest"> </i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="p-2 fa-lg ins-ic">
+                      <i class="fab fa-instagram"> </i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="p-2 fa-lg tw-ic">
+                      <i class="fab fa-twitter"> </i>
+                    </a>
+                  </li>
+                </ul>
+          <hr>
+                <button class="btn btn-blue-grey btn-sm mt-2">Edit Profile <i class="fas fa-pencil-alt"></i></button>
+                {% endif %}
+      </div>
+      <!--/.Card content-->
+    </div>
+    <!--/.Card-->
+      </div> <!--  /.col -->
+
+
+       <div class="col-md-8">
+        <div class="card">
+             <div class="card-header">Threads Answered by You
+                 <span class="float-right">
+                 <div class="active-cyan-4">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+                </span>
+                </div>
+
+            <div class="card-body">
+
+             <table class="table table-sm table-striped table-responsive-md btn-table">
+
+                        <thead class="grey lighten-2">
+                          <tr>
+                            <th><b>Thread</b></th>
+                            <th class="d-none d-lg-table-cell"><b>Threaded by</b></th>
+                            <th><b>Category/Products</b></th>
+                            <th class="d-none d-lg-table-cell"><b>Thread Status</b></th>
+                            <th class="d-none d-lg-table-cell"><b>Date</b></th>
+                          </tr>
+                        </thead>
+
+              <tbody>
+
+              <tr>
+
+                   <td>Connecting to Android</td>
+
+                    <td class="d-none d-lg-table-cell">
+                      <div class="media">
+                        <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3"
+                              alt="avatar image" width="30">
+                        <div class="media-body mt-1">
+                          Satya
+                          &nbsp;<i class="fas fa-star light-green-text"></i>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Smart home Automation / Touch magic</td>
+                    <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+                      <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+                      &nbsp;&nbsp; <i class="fas fa-check-circle green-text"></i>
+                    </td>
+
+                    <td class="d-none d-lg-table-cell">20 Dec, 09:45 AM (2019)</td>
+
+                  </tr>
+
+                 <tr>
+
+                   <td>Connecting to Android</td>
+
+                    <td class="d-none d-lg-table-cell">
+                      <div class="media">
+                        <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3" alt="avatar image" width="30">
+                        <div class="media-body mt-1">
+                          Mahaveer
+                          &nbsp<i class="fas fa-star cyan-text"></i>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Smart home Automation / Touch magic</td>
+                    <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+                      <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+                      &nbsp;&nbsp; <i class="fas fa-check-circle grey-text"></i>
+                    </td>
+
+                    <td class="d-none d-lg-table-cell">20 Dec, 09:45 AM (2019)</td>
+
+
+                  </tr>
+
+                  <tr>
+
+                   <td>Connecting to Android</td>
+
+                    <td class="d-none d-lg-table-cell">
+                      <div class="media">
+                        <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3" alt="avatar image" width="30">
+                        <div class="media-body mt-1">
+                          John Dsouza
+                          &nbsp;<i class="fas fa-star grey-text"></i>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Smart home Automation / Touch magic</td>
+
+                    <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+                      <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+                      &nbsp;&nbsp; <i class="fas fa-check-circle grey-text"></i>
+                    </td>
+
+                    <td class="d-none d-lg-table-cell">20 Dec, 09:45 AM (2019)</td>
+
+                  </tr>
+
+                  <tr>
+
+                   <td>Connecting to Android</td>
+
+                    <td class="d-none d-lg-table-cell">
+                      <div class="media">
+                        <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3" alt="avatar image" width="30">
+                        <div class="media-body mt-1">
+                          Ajith Kumar
+                          &nbsp;<i class="fas fa-star cyan-text"></i>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Smart home Automation / Touch magic</td>
+                    <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+                      <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+                      &nbsp;&nbsp; <i class="fas fa-check-circle grey-text"></i>
+                    </td>
+
+                    <td class="d-none d-lg-table-cell">20 Dec, 09:45 AM (2019)</td>
+
+                  </tr>
+
+                  <tr>
+
+                   <td>Connecting to Android</td>
+
+                    <td class="d-none d-lg-table-cell">
+                      <div class="media">
+                        <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3" alt="avatar image" width="30">
+                        <div class="media-body mt-1">
+                          Chandan Shetty
+                          &nbsp;<i class="fas fa-star light-green-text"></i>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Smart home Automation / Touch magic</td>
+                    <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+                      <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+                      &nbsp;&nbsp; <i class="fas fa-check-circle grey-text"></i>
+                    </td>
+
+                    <td class="d-none d-lg-table-cell">20 Dec, 09:45 AM (2019)</td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+              <nav>
+                        <ul class="pagination justify-content-end pg-blue">
+                          <li class="page-item">
+                            <a class="page-link" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item active"><a class="page-link">1</a></li>
+                          <li class="page-item"><a class="page-link">2</a></li>
+                          <li class="page-item"><a class="page-link">3</a></li>
+                          <li class="page-item"><a class="page-link">4</a></li>
+                          <li class="page-item"><a class="page-link">5</a></li>
+                          <li class="page-item">
+                            <a class="page-link" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+              </nav>
+
+                </div> <!-- card-body -->
+              </div> <!-- card -->
+       </div> <!-- /.col -->
+
+      </div><!-- /.row 1 -->
+<br>
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+            <div class="card">
+             <div class="card-header">Threads created by You
+                 <span class="float-right">
+                 <div class="active-cyan-4">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+                </span>
+                </div>
+
+                  <div class="card-body">
+
+
+                   <table class="table table-sm table-striped table-responsive-md btn-table">
+
+                              <thead class="grey lighten-2">
+                                <tr>
+                                  <th><b>Thread</b></th>
+                                  <th class="d-none d-lg-table-cell"><b>Threaded by</b></th>
+                                  <th><b>Category/Products</b></th>
+                                  <th class="d-none d-lg-table-cell"><b>Thread Status</b></th>
+                                  <th class="d-none d-lg-table-cell"><b>Date</b></th>
+                                </tr>
+                              </thead>
+
+                    <tbody>
+
+                    {% if personal_entries %}
+
+                    {% for personal in personal_entries %}
+
+                    <tr>
+
+                     <td>{{ personal.topic }}</td>
+
+                      <td class="d-none d-lg-table-cell">
+                        <div class="media">
+                          <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3" alt="avatar image" width="30">
+                          <div class="media-body mt-1">
+                            {{ personal.user }}
+                            &nbsp;<i class="fas fa-star cyan-text"></i>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>{{ personal.category }} / {{ personal.product }}</td>
+                      <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+                        <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+                        &nbsp;&nbsp; <i class="fas fa-check-circle grey-text"></i>
+                      </td>
+
+                      <td class="d-none d-lg-table-cell">{{ personal.dateandtime }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                    {% endif %}
+
+
+
+                  </tbody>
+
+                </table>
+
+                <nav>
+                          <ul class="pagination justify-content-end pg-blue">
+                            <li class="page-item">
+                              <a class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link">1</a></li>
+                            <li class="page-item"><a class="page-link">2</a></li>
+                            <li class="page-item"><a class="page-link">3</a></li>
+                            <li class="page-item"><a class="page-link">4</a></li>
+                            <li class="page-item"><a class="page-link">5</a></li>
+                            <li class="page-item">
+                              <a class="page-link" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+                          </ul>
+                </nav>
+
+                  </div> <!-- card-body -->
+                </div> <!-- card -->
+
+            </div> <!-- /.col -->
+        </div>  <!-- /.row  -->
+
+
+    </div>  <!-- /.container-fluid -->
+</main>
+<!--/.Main Layout-->
+
+
+{% endblock %}

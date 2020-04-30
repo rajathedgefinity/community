@@ -1,0 +1,229 @@
+{% extends "forum/base.html" %}
+{% block content %}
+<br><br>
+<div class="view intro-2">
+    <div class="full-bg-img">
+        <div class="mask rgba-stylish-light flex-center">
+            <div class="container">
+                <div class="white-text text-center wow fadeInUp">
+                   <h2>Fueb &nbsp; | &nbsp; Community</h2>
+                   <br>
+                   <button type="button" class="btn btn-info">Knowledge Base</button>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</header>
+<!--Main Navigation-->
+
+<!--Main Layout-->
+<main class=" my-3">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+            <div class="card">
+             <div class="card-header">Recent Threads
+               {% if user.is_authenticated %}
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#basicExampleModal">Create New Thread</button>
+               {% endif %}
+                 <span class="float-right">
+                 <div class="active-cyan-4">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+                </span>
+                </div>
+
+  <div class="card-body">
+
+
+   <table class="table table-sm table-striped table-responsive-md btn-table">
+
+              <thead class="grey lighten-2">
+                <tr>
+                  <th><b>Thread</b></th>
+                  <th class="d-none d-lg-table-cell"><b>Threaded by</b></th>
+                  <th><b>Category/Products</b></th>
+                  <th class="d-none d-lg-table-cell"><b>Thread Status</b></th>
+                  <th  class="d-none d-lg-table-cell"><b>Date</b></th>
+                </tr>
+              </thead>
+
+  <tbody>
+
+    {% if all_entries %}
+
+    {% for data in all_entries %}
+
+    <tr>
+
+     <td>{{ data.topic }}</td>
+
+      <td class="d-none d-lg-table-cell">
+        <div class="media">
+          <img  src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle mr-3"
+                alt="avatar image" width="30">
+          <div class="media-body mt-1">
+            {{ data.user }}
+            &nbsp;<i class="fas fa-star cyan-text" ></i>
+          </div>
+        </div>
+      </td>
+
+      <td>{{ data.category }} / {{ data.product }}</td>
+      <td class="d-none d-lg-table-cell">&nbsp;&nbsp;
+        <i class="far fa-comment-alt mr-2 blue-text" aria-hidden="true"></i>2
+        &nbsp;&nbsp; <i class="fas fa-check-circle grey-text"></i>
+      </td>
+
+      <td class="d-none d-lg-table-cell">{{ data.dateandtime }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+    {% endif %}
+
+  </tbody>
+
+</table>
+
+<nav>
+          <ul class="pagination justify-content-end pg-blue">
+            <li class="page-item">
+              <a class="page-link" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item active"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item"><a class="page-link">4</a></li>
+            <li class="page-item"><a class="page-link">5</a></li>
+            <li class="page-item">
+              <a class="page-link" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+  </div> <!-- card-body -->
+</div> <!-- card -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+<!--Main Layout-->
+
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Thread</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{% url 'dash' %}" method="POST">
+        {% csrf_token %}
+      <div class="modal-body">
+            <select class="browser-default custom-select" name="category">
+              <option value="Smart Home Automation" selected>Smart Home Automation</option>
+            </select>
+
+            <select class="browser-default custom-select mt-2 mb-2" name="product">
+              <option value="Gateway" selected>Gateway</option>
+              <option value="Vibe">Vibe</option>
+              <option value="Panels">Panels</option>
+            </select>
+
+            <input class="form-control mb-2" type="text" placeholder="Topic" name="topic">
+
+            <div id="tinymce-form">
+            <fieldset class="form-group">
+                <textarea
+                        class="form-control"
+                        id="editor"
+                        rows="10"
+                        placeholder="Content"
+                        v-tinymce-editor="content"
+                        name="content">
+                </textarea>
+            </fieldset>
+            {{ content }}
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.16/vue.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.3.4/tinymce.min.js'></script>
+
+<script >$(function() {
+
+  // tinymce directive
+  Vue.directive('tinymce-editor',{
+    twoWay: true,
+    bind: function() {
+      var self = this;
+      tinymce.init({
+        selector: '#editor',
+        setup: function(editor) {
+
+          // init tinymce
+          editor.on('init', function() {
+            tinymce.get('editor').setContent(self.value);
+          });
+
+          // when typing keyup event
+          editor.on('keyup', function() {
+
+            // get new value
+            var new_value = tinymce.get('editor').getContent(self.value);
+
+            // set model value
+            self.set(new_value)
+          });
+        }
+      });
+    },
+    update: function(newVal, oldVal) {
+      // set val and trigger event
+      $(this.el).val(newVal).trigger('keyup');
+    }
+
+  })
+
+  new Vue({
+    el: '#tinymce-form',
+    data: {
+      content: 'Your Message Here'
+    }
+  })
+
+
+})
+//# sourceURL=pen.js
+</script>
+{% endblock %}

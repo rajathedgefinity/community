@@ -1,0 +1,24 @@
+
+
+
+.intro-2 {
+    background: url("../img/bg.jpg") no-repeat center center;
+    background-size: cover;
+}
+.view {
+
+}
+.navbar {
+    z-index: 1;
+}
+html,
+body,
+header,
+.view {
+    height: 75%;
+}
+
+.md-form{
+    margin-top: 0;
+    margin-bottom: 0;
+}
